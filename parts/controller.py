@@ -1290,6 +1290,8 @@ class PS4JoystickController(JoystickController):
     def set_brake(self, axis_val):  # ! 編集済み
         """ブレーキを設定する"""
         # トリガーの入力値を0~1に正規化
+        # 入力値が想定と逆だったので反転
+        axis_val *= -1
         minimum = -1.0
         maximum = 1.0
         self.brake = (axis_val - minimum) / (maximum - minimum)
